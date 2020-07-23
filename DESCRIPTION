@@ -1,11 +1,24 @@
 Package: covid19India
 Type: Package
-Title: What the Package Does (Title Case)
+Title: The COVID-19 India Dataset
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: person("Shubhram", "Pandey", email = "shubhram1992@gmail.com",
+  role = c("aut", "cre"))
+Maintainer: Shubhram Pandey <shubhram1992@gmail.com>
+Description: Provides a detailed dataset of COVID19 cases in India and updated on daily basis
 Encoding: UTF-8
 LazyData: true
+License: GPL-2
+Depends:
+  R (>= 3.0.2)
+Imports:
+  devtools
+Suggests:
+    remotes (>= 2.1.1),
+    testthat (>= 2.1.0),
+    knitr (>= 1.28),
+    rmarkdown (>= 2.1)
+URL: https://github.com/shubhrampandey/covid19India
+BugReports: https://github.com/shubhrampandey/covid19India/issues
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr

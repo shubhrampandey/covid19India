@@ -1,22 +1,22 @@
 #' @title Update daily data in time series format
 #' @description This function updates data in a time series format
 #' @param branch default branch is master
-#' @examples updateTimeSeriesIndia()
 #' @author Shubhram Pandey
+#' @import dplyr usethis utils
 #' @export
 updateTimeSeriesIndia <- function(branch = "master"){
-  `%>%` <- magrittr::`%>%`
   print(paste0("Branch name:",branch))
 
   if (branch != "master") {
     stop("The branch argument is missing")
   }
+  "." = NULL
   timeSeriesIndiaOld = covid19India::timeSeriesIndia
   timeSeriesIndia <- read.csv("https://api.covid19india.org/csv/latest/case_time_series.csv",
                          stringsAsFactors = FALSE) %>%
-                         select(-Date) %>%
+                         select(-c("Date")) %>%
                          mutate(Date = seq(as.Date("2020-01-30"),as.Date("2020-01-30") + (nrow(.) - 1),by = 1)) %>%
-    select(Date,dplyr::everything())
+    select("Date",dplyr::everything())
   if (ncol(timeSeriesIndia) != 7) {
     stop("The number of columns is invalid")
   }

@@ -2,3 +2,6 @@
 
 export(updateStateWise)
 export(updateTimeSeriesIndia)
+import(dplyr)
+import(usethis)
+import(utils)

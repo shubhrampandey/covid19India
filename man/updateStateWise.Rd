@@ -12,9 +12,6 @@ updateStateWise(branch = "master")
 \description{
 This function updates state wise data on daily basis from website
 }
-\examples{
-updateStateWise()
-}
 \author{
 Shubhram Pandey
 }

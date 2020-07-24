@@ -12,9 +12,6 @@ updateTimeSeriesIndia(branch = "master")
 \description{
 This function updates data in a time series format
 }
-\examples{
-updateTimeSeriesIndia()
-}
 \author{
 Shubhram Pandey
 }

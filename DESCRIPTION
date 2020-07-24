@@ -1,18 +1,21 @@
 Package: covid19India
 Type: Package
-Title: The COVID-19 India Dataset
+Title: The nCov-19 India Dataset
 Version: 0.1.0
 Authors@R: person("Shubhram", "Pandey", email = "shubhram1992@gmail.com",
   role = c("aut", "cre"))
 Maintainer: Shubhram Pandey <shubhram1992@gmail.com>
-Description: Provides a detailed dataset of COVID19 cases in India and updated on daily basis
+Description: Provides a daily summary of the Coronavirus (COVID-19) cases in India by state and district level.
 Encoding: UTF-8
 LazyData: true
 License: GPL-2
 Depends:
   R (>= 3.0.2)
 Imports:
-  devtools
+  devtools,
+  dplyr,
+  usethis,
+  utils
 Suggests:
     remotes (>= 2.1.1),
     testthat (>= 2.1.0),
@@ -21,4 +24,3 @@ Suggests:
 URL: https://github.com/shubhrampandey/covid19India
 BugReports: https://github.com/shubhrampandey/covid19India/issues
 RoxygenNote: 7.1.1
-VignetteBuilder: knitr

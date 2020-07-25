@@ -1,3 +1,5 @@
+## code to prepare `timeSeriesIndia` dataset goes here
+
 #' @title Update daily data in time series format
 #' @description This function updates data in a time series format
 #' @param branch default branch is master
@@ -5,7 +7,7 @@
 #' @import dplyr usethis utils rlang
 #' @export
 updateTimeSeriesIndia <- function(branch = "master"){
-  library(covid19India)
+  library(dplyr)
   print(paste0("Branch name:",branch))
 
   if (branch != "master") {
@@ -14,14 +16,14 @@ updateTimeSeriesIndia <- function(branch = "master"){
   "." = NULL
   timeSeriesIndiaOld = covid19India::timeSeriesIndia
   timeSeriesIndia <- read.csv("https://api.covid19india.org/csv/latest/case_time_series.csv",
-                         stringsAsFactors = FALSE) %>%
-                         select(-c("Date")) %>%
-                         mutate(Date = seq(as.Date("2020-01-30"),as.Date("2020-01-30") + (nrow(.) - 1),by = 1)) %>%
+                              stringsAsFactors = FALSE) %>%
+    select(-c("Date")) %>%
+    mutate(Date = seq(as.Date("2020-01-30"),as.Date("2020-01-30") + (nrow(.) - 1),by = 1)) %>%
     select("Date",dplyr::everything())
   if (ncol(timeSeriesIndia) != 7) {
     stop("The number of columns is invalid")
   }
-  if (nrow(timeSeriesIndia) > nrow(timeSeriesIndiaOld)) {
+  if (timeSeriesIndia$Daily.Confirmed[base::nrow(timeSeriesIndia)] != timeSeriesIndiaOld$Daily.Confirmed[base::nrow(timeSeriesIndiaOld)]) {
     print("Updates available")
     # covid19India::timeSeriesIndia = timeSeriesIndia
     usethis::use_data(timeSeriesIndia, overwrite = TRUE)

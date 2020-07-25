@@ -1,3 +1,9 @@
+## Version 0.2.0
+
+#### Added a single fuction to update all the data in package:
+  - `updateAllData` - function to update all the data in a single call.
+
+
 ## Version 0.1.0
 
 #### Release two datasets:

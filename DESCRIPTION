@@ -1,21 +1,22 @@
 Package: covid19India
 Type: Package
 Title: The nCov-19 India Dataset
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Shubhram", "Pandey", email = "shubhram1992@gmail.com",
   role = c("aut", "cre"))
 Maintainer: Shubhram Pandey <shubhram1992@gmail.com>
 Description: Provides a daily summary of the Coronavirus (COVID-19) cases in India by state and district level.
 Encoding: UTF-8
 LazyData: true
-License: GPL-2
+License: MIT + file LICENSE
 Depends:
   R (>= 3.0.2)
 Imports:
   devtools,
   dplyr,
   usethis,
-  utils
+  utils,
+  rlang
 Suggests:
     remotes (>= 2.1.1),
     testthat (>= 2.1.0),

@@ -1,22 +1,24 @@
+## code to prepare `stateWise` dataset goes here
+
 #' @title Update state wise data
 #' @description This function updates state wise data on daily basis from website
 #' @param branch default branch is master
 #' @author Shubhram Pandey
 #' @import dplyr usethis utils rlang
-#' @export
 updateStateWise <- function(branch = "master"){
   # library(covid19India)
+  library(dplyr)
   print(paste0("Branch name:",branch))
   if (branch != "master") {
     stop("The branch argument is missing")
   }
   stateWiseOld = covid19India::stateWise
   stateWise <- read.csv("https://api.covid19india.org/csv/latest/state_wise.csv",
-                          stringsAsFactors = FALSE) %>%
+                        stringsAsFactors = FALSE) %>%
     dplyr::select(-c("Migrated_Other"))
-    if (ncol(stateWise) != 11) {
-      stop("The number of columns is invalid")
-    }
+  if (ncol(stateWise) != 11) {
+    stop("The number of columns is invalid")
+  }
   if (stateWise$Confirmed[1] != stateWiseOld$Confirmed[1]) {
     print("Updates available")
     # covid19India::stateWise = stateWise
@@ -30,3 +32,4 @@ updateStateWise <- function(branch = "master"){
   return(print("Done..."))
 
 }
+

@@ -70,3 +70,30 @@
 #'
 
 "timeSeriesIndia"
+
+
+#' The 2019 Novel Coronavirus COVID-19 (2019-nCoV) State wise time series Outbreak Dataset
+#'
+#' @description  State wise time series outbreak dataset updated daily
+#'
+#' @format A data.frame object
+#' @source Coronavirus India Database \href{https://www.covid19india.org/}{website}
+#' @keywords datasets coronavirus COVID19 India
+#' @details The dataset contains the time series numbers of confirmed, recovered and death of the Coronavirus pandemic cases in India state wise. The data includes the following fields:
+#'
+#' - Date - Date
+#'
+#' - Status - Variable like (Confirmed, recovered and deaths)
+#'
+#' - TT - Total of variables
+#'
+#' - .... - Rest of the columns are states with coded as state key
+#'
+#' @examples
+#'
+#' data(stateWiseTimeSeries)
+#'
+#' head(stateWiseTimeSeries)
+#'
+
+"stateWiseTimeSeries"

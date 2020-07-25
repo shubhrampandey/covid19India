@@ -8,6 +8,7 @@ updateAllData <- function(){
 
   stateWiseCurrent <- covid19India::stateWise
   timeSeriesIndiaCurrent <- covid19India::timeSeriesIndia
+  stateWiseTimeSeriesCurrent <- covid19India::stateWiseTimeSeries
 
   stateWiseGit <- utils::read.csv("https://raw.githubusercontent.com/shubhrampandey/covid19India/master/csv/stateWise.csv",
                                stringsAsFactors = FALSE)
@@ -28,7 +29,7 @@ updateAllData <- function(){
   }
 
   if(flag){
-    q <- base::tolower(base::readline("Updates are available on the covid19italy Dev version, do you want to update? n/Y"))
+    q <- base::tolower(base::readline("Updates are available on the covid19India Dev version, do you want to update? n/Y"))
 
     if(q == "y" | q == "yes"){
 
@@ -53,4 +54,5 @@ updateAllData <- function(){
   } else {
     base::message("No updates are available")
   }
+  library(covid19India)
 }

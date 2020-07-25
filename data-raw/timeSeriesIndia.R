@@ -5,7 +5,6 @@
 #' @param branch default branch is master
 #' @author Shubhram Pandey
 #' @import dplyr usethis utils rlang
-#' @export
 updateTimeSeriesIndia <- function(branch = "master"){
   library(dplyr)
   print(paste0("Branch name:",branch))

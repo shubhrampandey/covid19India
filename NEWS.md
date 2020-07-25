@@ -1,5 +1,9 @@
 ## Version 0.2.0
 
+
+#### Release additional one dataset:
+  - `stateWiseTimeSeries` - Time series data state level consist of confirmed, recovered and deaths cases.
+
 #### Added a single fuction to update all the data in package:
   - `updateAllData` - function to update all the data in a single call.
 

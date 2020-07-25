@@ -16,6 +16,10 @@ updateAllData <- function(){
   timeSeriesIndiaGit <- utils::read.csv("https://raw.githubusercontent.com/shubhrampandey/covid19India/master/csv/timeSeriesIndia.csv",
                                 stringsAsFactors = FALSE)
 
+  stateWiseTimeSeriesGit <- utils::read.csv("https://raw.githubusercontent.com/shubhrampandey/covid19India/master/csv/stateWiseTimeSeries.csv",
+                                        stringsAsFactors = FALSE)
+
+
   if (!base::identical(stateWiseGit, stateWiseCurrent)) {
     if(stateWiseGit$Confirmed[1] != stateWiseCurrent$Confirmed[1]){
       flag <- TRUE
@@ -24,6 +28,12 @@ updateAllData <- function(){
 
   if (!base::identical(timeSeriesIndiaGit, timeSeriesIndiaCurrent)){
     if(timeSeriesIndiaGit$Daily.Confirmed[base::nrow(timeSeriesIndiaGit)] != timeSeriesIndiaCurrent$Daily.Confirmed[base::nrow(timeSeriesIndiaCurrent)]) {
+      flag <- TRUE
+    }
+  }
+
+  if (!base::identical(stateWiseTimeSeriesGit, stateWiseTimeSeriesCurrent)){
+    if(stateWiseTimeSeriesGit$TT[base::nrow(stateWiseTimeSeriesGit)] != stateWiseTimeSeriesCurrent$TT[base::nrow(stateWiseTimeSeriesCurrent)]) {
       flag <- TRUE
     }
   }
